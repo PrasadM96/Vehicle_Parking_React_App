@@ -36,11 +36,14 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Navbar />
-          {this.state.user ? <DashBoard /> : console.log("da")}
-          <Switch>
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-          </Switch>
+          {this.state.user ? (
+            <DashBoard />
+          ) : (
+            <Switch>
+              <Route path="/signin" component={SignIn} />
+              <Route path="/signup" component={SignUp} />
+            </Switch>
+          )}
         </div>
       </BrowserRouter>
     );

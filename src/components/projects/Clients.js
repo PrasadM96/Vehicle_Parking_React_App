@@ -1,6 +1,6 @@
 import React from "react";
 
 const Client = () => {
-  return <h1>Usage</h1>;
+  return <h3>Usage</h3>;
 };
 export default Client;
