@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import fbConfig from "../../config/fbConfig";
 
 class SignUp extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     email: "",
     password: "",
@@ -16,9 +20,14 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    fbConfig
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(u => {})
+      .catch(error => {
+        console.log(error);
+      });
   };
-
   render() {
     return (
       <div className="container">

@@ -9,9 +9,14 @@ const SignedInLinks = () => {
         <NavLink to="/">About Us</NavLink>
       </li>
       <li>
-        <button color="darken" onClick={fbConfig.auth().signOut}>
-          <NavLink to="/">Log out</NavLink>
-        </button>
+        <NavLink
+          to="/signin"
+          onClick={() => {
+            fbConfig.auth().signOut();
+          }}
+        >
+          Log out
+        </NavLink>
       </li>
 
       <li>

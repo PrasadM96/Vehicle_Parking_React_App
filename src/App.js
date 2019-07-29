@@ -3,9 +3,9 @@ import Navbar from "./components/layout/Navbar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
+import LogOut from "./components/auth/Logout";
 import DashBoard from "./components/dashboard/Dashboard";
 import fbConfig from "./config/fbConfig";
-import { log } from "util";
 
 class App extends Component {
   constructor(props) {
@@ -36,14 +36,11 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Navbar />
-          {this.state.user ? (
-            <DashBoard />
-          ) : (
-            <Switch>
-              <Route path="/signin" component={SignIn} />
-              <Route path="/signup" component={SignUp} />
-            </Switch>
-          )}
+          {this.state.user ? <DashBoard /> : console.log("da")}
+          <Switch>
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
