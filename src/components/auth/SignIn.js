@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import fbConfig from "../../config/fbConfig";
 
 class SignIn extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     email: "",
     password: ""
@@ -14,7 +18,13 @@ class SignIn extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    fbConfig
+      .auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(u => {})
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   render() {
@@ -27,11 +37,11 @@ class SignIn extends Component {
             <input type="email" id="email" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <label htmlFor="password">Passw ord</label>
+            <label htmlFor="password">Password</label>
             <input type="password" id="password" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0"> Sign Up</button>
+            <button className="btn pink lighten-1 z-depth-0"> SignIn</button>
           </div>
         </form>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import fbConfig from "../../config/fbConfig";
 
 const SignedInLinks = () => {
   return (
@@ -8,7 +9,9 @@ const SignedInLinks = () => {
         <NavLink to="/">About Us</NavLink>
       </li>
       <li>
-        <NavLink to="/">Log out</NavLink>
+        <button color="darken" onClick={fbConfig.auth().signOut}>
+          <NavLink to="/">Log out</NavLink>
+        </button>
       </li>
 
       <li>

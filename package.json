@@ -6,10 +6,16 @@
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
     "boostrap": "^2.0.0",
+    "firebase": "^6.3.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-redux-firebase": "^2.3.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "redux": "^4.0.4",
+    "redux-firebase": "^0.3.3",
+    "redux-thunk": "^2.3.0",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {
