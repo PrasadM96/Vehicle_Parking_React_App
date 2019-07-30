@@ -7,34 +7,97 @@ class Client extends Component {
     super(props);
 
     this.state = {
-      person: []
+      tag: ["13 08 02 21", "CB 89 AC 0E", "D9 47 39 59"],
+      person: [],
+      Date: 0,
+      Hours: 0,
+      Minutes: 0,
+      Month: 0,
+      Year: 0,
+      Status: 0
     };
   }
 
   componentDidMount() {
-    const app = firebase
-      .database()
-      .ref("Car_Parking")
-      .child("13 08 02 21");
-    app.on("value", snapshot => {
-      let values = snapshot.val();
+    this.state.tag.map(e => {
+      const app = firebase
+        .database()
+        .ref("Car_Parking")
+        .child(e);
+      let values;
 
-      let valueState = [];
-      for (let inn in values) {
-        console.log(inn);
-        valueState.push({
-          Acc_bal: values[inn].inn,
-          Name: values[inn].Name
+      app.on("value", snapshot => {
+        values = snapshot.val();
+
+        console.log(values["Park"]["Park_Time"]["Date"]);
+        this.setState({
+          person: values,
+          Date: values["Park"]["Park_Time"]["Date"],
+          Hours: values["Park"]["Park_Time"]["Hour"],
+          Minutes: values["Park"]["Park_Time"]["Minutes"],
+          Month: values["Park"]["Park_Time"]["Month"],
+          Year: values["Park"]["Park_Time"]["Year"],
+          Status: values["Park"]["Status"]
         });
-      }
-      this.setState({
-        person: valueState
       });
     });
   }
 
   render() {
-    return <h5>{this.state.person.Name}</h5>;
+    return (
+      <div>
+        <br />
+        <h5>Static Information</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Acc_bal</th>
+              {/* <th>ParkTime</th> */}
+              <th>Item Price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>{this.state.tag[0]}</td>
+              <td>{this.state.person["Name"]}</td>
+              <td>{this.state.person["Acc_bal"]}</td>
+              {/* <td>{this.state.person["Park"]}</td> */}
+              <td>{this.state.person["Tel"]}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br />
+        <h5>Dynamic Information</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Hours</th>
+              <th>Minutes</th>
+              <th>Month</th>
+              {/* <th>ParkTime</th> */}
+              <th>Year</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>{this.state.Date}</td>
+              <td>{this.state.Hours}</td>
+              <td>{this.state.Minutes}</td>
+              <td>{this.state.Month}</td>
+              <td>{this.state.Year}</td>
+              <td>{this.state.Status}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
   }
 }
 

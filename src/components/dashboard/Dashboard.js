@@ -9,10 +9,10 @@ class DashBoard extends Component {
     return (
       <div className="dashboard container">
         <div className="row">
-          <div className="col s12 m8">
+          <div className="col s5 m6">
             <Clients />
           </div>
-          <div className="col s12 m2 offset-m1">
+          <div className="col s5 m4 offset-m1">
             <Notifications />
           </div>
         </div>
