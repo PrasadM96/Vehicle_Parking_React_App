@@ -53,7 +53,7 @@ class Client extends Component {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Acc_bal</th>
+
               {/* <th>ParkTime</th> */}
               <th>Item Price</th>
             </tr>
@@ -63,7 +63,7 @@ class Client extends Component {
             <tr>
               <td>{this.state.tag[0]}</td>
               <td>{this.state.person["Name"]}</td>
-              <td>{this.state.person["Acc_bal"]}</td>
+
               {/* <td>{this.state.person["Park"]}</td> */}
               <td>{this.state.person["Tel"]}</td>
             </tr>
@@ -75,23 +75,27 @@ class Client extends Component {
         <table>
           <thead>
             <tr>
-              <th>Date</th>
+              {/* {/* <th>Date</th>
               <th>Hours</th>
               <th>Minutes</th>
-              <th>Month</th>
+              <th>Month</th> */}
               {/* <th>ParkTime</th> */}
-              <th>Year</th>
+              {/* <th>Year</th>  */}
+              <th>Date</th>
+              <th>Time</th>
               <th>Status</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td>{this.state.Date}</td>
-              <td>{this.state.Hours}</td>
-              <td>{this.state.Minutes}</td>
-              <td>{this.state.Month}</td>
-              <td>{this.state.Year}</td>
+              <td>
+                {this.state.Date}&nbsp;{this.state.Month}&nbsp;
+                {this.state.Year}&nbsp;
+              </td>
+              <td>
+                {this.state.Hours}&nbsp;{this.state.Minutes}
+              </td>
               <td>{this.state.Status}</td>
             </tr>
           </tbody>

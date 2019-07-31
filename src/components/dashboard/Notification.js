@@ -5,7 +5,7 @@ const Notifications = () => {
     <div>
       <br />
       <h5>Notifications</h5>
-      <h6>No notificatinos yet</h6>
+      <h6>No notifications yet</h6>
     </div>
   );
 };
